@@ -95,7 +95,7 @@ WSGI_APPLICATION = 'poc_systems_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresqliuiui',
         'NAME': 'elddwomh',
         'USER': 'elddwomh',
         'PASSWORD': 'skgUevkZBiCtyZndoLUMgKK_NPDC90aD',

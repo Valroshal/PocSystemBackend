@@ -63,6 +63,7 @@ class ProductService(BaseManager):
             product_id: str,
     ):
         try:
+            print("updating product with id", id)
             if favorite is None:
                 raise ValidationError('favorite value not found')
 
@@ -73,7 +74,7 @@ class ProductService(BaseManager):
                 model_id=product_id,
                 favorite=favorite,
             )
-            print("Product service: inserted document", product_id)
+            print("Product service: updated document", product_id)
 
         except Exception as ex:
             logger.error(str(ex), exc_info=True)

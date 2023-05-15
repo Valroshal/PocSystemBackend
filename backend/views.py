@@ -15,7 +15,12 @@ class ProductApi(APIView):
 
     def post(self, request):
         try:
-
+            pr_id = request.data.get('pr_id')
+            name = request.data.get('name')
+            description = request.data.get('description')
+            price = request.data.get('price')
+            quantity = request.data.get('quantity')
+            favorite = request.data.get('favorite')
             ProductService().create()
 
             print('successfully created')
