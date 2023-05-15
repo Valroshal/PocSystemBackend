@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from rest_framework.views import APIView
 from django.core.exceptions import ObjectDoesNotExist, ValidationError
-from rest_framework import status
+from rest_framework import status, renderers
 from rest_framework.response import Response
 from django.contrib.auth import authenticate
 
@@ -11,6 +11,7 @@ from backend.user.services.user_service import UserService
 
 # Create your views here.
 class ProductApi(APIView):
+    renderer_classes = [renderers.JSONRenderer]
 
     def put(self, request):
         try:
@@ -68,17 +69,18 @@ class UserApi(APIView):
         try:
             if request.method == 'POST':
                 # POST request
-
+                print('request', request)
                 username = request.data.get('username')
                 password = request.data.get('password')
-
+                print('data: ', username, password)
                 res = UserService().get_by_username(username=username, password=password)
 
                 return res
 
         except ObjectDoesNotExist:
             return Response(
-                status=status.HTTP_204_NO_CONTENT
+                status=400,
+                data={'error': 'Invalid credentials'}
             )
         except Exception as ex:
             return Response(
