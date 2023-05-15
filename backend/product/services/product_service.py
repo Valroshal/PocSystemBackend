@@ -31,7 +31,14 @@ class ProductService(BaseManager):
             favorite: bool,
     ):
         try:
-
+            print(
+                'id=',pr_id,
+                'name=',name,
+                'description=',description,
+                'price=',price,
+                'quantity=',quantity,
+                'favorite=',favorite
+            )
             # create product
             product = super().create(
                 id=pr_id,
