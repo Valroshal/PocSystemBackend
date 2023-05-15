@@ -60,6 +60,8 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'poc_systems_backend.urls'
 
 CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_PRIVATE_NETWORK: True
+
 CORS_ALLOW_METHODS = [
     'DELETE',
     'GET',
@@ -67,11 +69,6 @@ CORS_ALLOW_METHODS = [
     'PATCH',
     'POST',
     'PUT',
-]
-
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:8081',
-    'https://example.com',
 ]
 
 TEMPLATES = [
