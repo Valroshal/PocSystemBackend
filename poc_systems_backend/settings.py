@@ -159,3 +159,9 @@ LOGIN_REDIRECT_URL = '/dashboard/'
 
 # Specify the URL to redirect users to if login is required
 LOGIN_URL = '/login/'
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Configure django-heroku
+import django_heroku
+django_heroku.settings(locals())
