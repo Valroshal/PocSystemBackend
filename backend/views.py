@@ -13,6 +13,30 @@ from backend.user.services.user_service import UserService
 class ProductApi(APIView):
     renderer_classes = [renderers.JSONRenderer]
 
+    def post(self, request):
+        try:
+
+            ProductService().create()
+
+            print('successfully created')
+            return Response(
+                status=status.HTTP_200_OK
+            )
+
+
+        except ValidationError as ex:
+            print('error', ex)
+            return Response(
+                data=str(ex),
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        except Exception as ex:
+            print('error', ex)
+            return Response(
+                data=str(ex),
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+
     def put(self, request):
         try:
 

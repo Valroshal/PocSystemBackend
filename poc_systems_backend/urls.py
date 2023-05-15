@@ -25,6 +25,7 @@ urlpatterns = [
     path('get_products/', views.ProductApi.as_view()),
     path('update_product/', views.ProductApi.as_view()),
     path('user/', views.UserApi.as_view()),
-    path('', views.HomeApi.as_view())
+    path('', views.HomeApi.as_view()),
+    path('create_product/', views.ProductApi.as_view())
 
 ]

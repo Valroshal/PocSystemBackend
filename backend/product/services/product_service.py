@@ -23,6 +23,7 @@ class ProductService(BaseManager):
     @transaction.atomic
     def create(
             self,
+            pr_id: str,
             name: str,
             description: str,
             price: decimal,
@@ -33,6 +34,7 @@ class ProductService(BaseManager):
 
             # create product
             product = super().create(
+                id=pr_id,
                 name=name,
                 description=description,
                 price=price,
@@ -64,6 +66,7 @@ class ProductService(BaseManager):
                 model_id=product_id,
                 favorite=favorite,
             )
+            print("Product service: inserted document", product_id)
 
         except Exception as ex:
             logger.error(str(ex), exc_info=True)
