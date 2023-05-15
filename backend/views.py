@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from rest_framework.views import APIView
 from django.core.exceptions import ObjectDoesNotExist, ValidationError
 from rest_framework import status
@@ -84,3 +85,8 @@ class UserApi(APIView):
                 data=str(ex),
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
+
+
+class HomeApi(APIView):
+    def get(self, request):
+        return HttpResponse("Welcome to the homepage!")
